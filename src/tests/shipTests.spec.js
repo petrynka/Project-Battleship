@@ -10,6 +10,11 @@ describe('Ship', () => {
       const ship = new Ship(3);
       expect(ship.isShipSunk()).toBe(false);
     });
+
+    test('ship starts with 0 hits', () =>{
+      const ship = new Ship(3);
+      expect(ship.hits).toBe(0);
+    })
   
     test('addHit increases hit count', () => {
       const ship = new Ship(3);
