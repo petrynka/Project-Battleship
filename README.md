@@ -73,3 +73,10 @@ Jest unit tests for game logic
 
 🧪 Testing
 Unit tests are written using Jest to ensure the core logic (e.g., ship placement, attack mechanics) works as expected. Test files are located in the __tests__/ folder.
+
+
+📌 In Progress
+Visual game interface
+
+Game loop and turn switching
+

@@ -8,7 +8,7 @@
       "start": "webpack serve --open",
       "build": "webpack"
     },
-    "keywords": ["todo", "project management"],
+    "keywords": ["Battleship", "battleship game"],
     "author": "",
     "license": "ISC",
     "dependencies": {
