@@ -10,7 +10,7 @@ class ComputerPlayer extends Player{
     }
 
     placeShipRandomly(){
-        const shipLengths = [4,3,3,2,2,2,1,1,1,1]; //All ships for game
+        const shipLengths = [4,3,3]; //All ships for game ,2,2,2,1,1,1,1
 
         for(const length of shipLengths){
             let placed = false;
@@ -23,12 +23,7 @@ class ComputerPlayer extends Player{
                     this.gameBoard.addShip(direction,{x,y},length);
                     placed = true;
                 } catch (error) {
-                    const direction = Math.random() > 0.5 ? 'horizontal' : 'vertical';
-                    const x = Math.floor(Math.random() * 10);
-                    const y = Math.floor(Math.random() * 10);
-          
-                    this.gameBoard.addShip(direction, { x, y }, length);
-                    placed = true;
+                    
                 }
             }
         }
