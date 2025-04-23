@@ -13,21 +13,26 @@ A classic Battleship game built with **vanilla JavaScript**, using **modular arc
 ## 📁 Project Structure
 battleship/ 
 ├── dist/ # Production build 
-│   └── index.html 
+│   ├── index.html 
+│   └── main.js
 │ 
 ├── src/ 
 │   ├── game/ # Core game logic 
 │   │ ├── ship.js 
-│   │ ├── gameboard.js 
+│   │ ├── gameboard.js
+│   │ ├── computerPlayer.js
+│   │ ├── game.js
 │   │ └── player.js 
 │   ├── ui/ # DOM manipulation & UI 
 │   │ ├── dom.js 
 │   │ └── events.js 
+│   ├── tests/ # Unit tests (Jest) 
+│   │   ├── shipTests.spec.js 
+│   │   ├── computerPlayer.spec.js 
+│   │   ├── player.spec.js 
+│   │   └── gameboard.spec.js 
 │   ├── style.css 
 │   └── index.js # Entry point 
-│   ├── tests/ # Unit tests (Jest) 
-│   ├── ship.test.js 
-│   └── gameboard.test.js 
 │ 
 ├── .gitignore 
 ├── package.json 
