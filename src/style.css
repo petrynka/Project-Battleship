@@ -1,11 +1,208 @@
-*{
+/* Main game styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f0f0;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px),
+                      linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 20px 20px;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.block{
-    width: 150px;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
     margin: 0 auto;
-    color: red;
-}
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2a5885;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .board-title {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2a5885;
+  }
+  
+  .board {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #333;
+    border-radius: 5px;
+  }
+  
+  .board-header, .board-row {
+    display: flex;
+  }
+  
+  .header-cell, .row-label {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #2a5885;
+  }
+  
+  .disabled-button {
+    background-color: #9bafc2 !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+  }
+  
+  .disabled-button:hover {
+    background-color: #9bafc2 !important;
+  }
+
+  .cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  /* Cell states */
+  .water {
+    background-color: #e6f7ff;
+  }
+  
+  .ship {
+    background-color: #6b6b6b;
+    border: 1px solid #555;
+  }
+  
+  .miss {
+    background-color: #e6f7ff;
+    position: relative;
+  }
+  
+  .miss::after {
+    content: '•';
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .hit {
+    background-color: #ff6b6b;
+    position: relative;
+  }
+  
+  .hit::after {
+    content: '×';
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Player boards interaction */
+  #computer-board .cell:hover:not(.hit):not(.miss) {
+    background-color: rgba(42, 88, 133, 0.2);
+  }
+  
+  /* Player cannot click on their own board */
+  #player-board .cell {
+    cursor: default;
+  }
+  
+  /* Message area */
+  .message-area {
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    min-height: 50px;
+  }
+  
+  /* Controls */
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #2a5885;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1d3e5f;
+  }
+  
+  /* Game over overlay */
+  .game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .game-over-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .game-area {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .board-container {
+      margin-bottom: 30px;
+    }
+  }

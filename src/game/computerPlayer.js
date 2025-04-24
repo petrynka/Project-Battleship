@@ -10,7 +10,7 @@ class ComputerPlayer extends Player{
     }
 
     placeShipRandomly(){
-        const shipLengths = [4,3,3]; //All ships for game ,2,2,2,1,1,1,1
+        const shipLengths = [4,3,3,2,2,2,1,1,1,1]; //All ships for game 
 
         for(const length of shipLengths){
             let placed = false;
@@ -29,42 +29,47 @@ class ComputerPlayer extends Player{
         }
     }
 
-    makeSmartMove(enemyBoard){
-        if(this.lastHitCoordinates.length > 0){
-            if(this.potentialTargets.length > 0){
+    makeSmartMove(enemyBoard) {
+        if (this.lastHitCoordinates.length > 0) {
+            if (this.potentialTargets.length > 0) {
                 const target = this.potentialTargets.pop();
-                try{
-                    const result = enemyBoard.receiveAttack(target.x,target.y);
-
-                    if(result.result === 'hit'){
-                        this.lastHitCoordinates.push({x : target.x, y : target.y});
-
+                try {
+                    const result = enemyBoard.receiveAttack(target.x, target.y);
+                    
+                    if (result.result === 'hit') {
+                        this.lastHitCoordinates.push({x: target.x, y: target.y});
                         this.addAdjacentCells(target.x, target.y);
                     }
                     return result;
-                } catch(error){
-                    return this.makeSmartMove(enemyBoard);
+                } catch (error) {
+                    
+                    return this.randomAttack(enemyBoard);
                 }
-            }else{
+            } else {
                 const lastHit = this.lastHitCoordinates[this.lastHitCoordinates.length-1];
-                this.addAdjacentCells(lastHit.x,lastHit.y);
-
+                this.addAdjacentCells(lastHit.x, lastHit.y);
+                
                 if (this.potentialTargets.length === 0) {
                     this.lastHitCoordinates = [];
                     return this.randomAttack(enemyBoard);
                 }
-                  
-                return this.makeSmartMove(enemyBoard);
+                
+                const target = this.potentialTargets.pop();
+                try {
+                    return enemyBoard.receiveAttack(target.x, target.y);
+                } catch (error) {
+                    return this.randomAttack(enemyBoard);
+                }
             }
         }
-
+        
         const attackResult = this.randomAttack(enemyBoard);
-
+        
         if (attackResult.result === 'hit') {
             this.lastHitCoordinates.push({ x: attackResult.x, y: attackResult.y });
-            this.addAdjacentCells(attackResult.x, attackResult.y); 
+            this.addAdjacentCells(attackResult.x, attackResult.y);
         }
-          
+        
         return { result: attackResult.result, message: attackResult.message };
     }
 

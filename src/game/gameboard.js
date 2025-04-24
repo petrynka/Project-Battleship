@@ -43,6 +43,41 @@ class GameBoard{
     return newShip;
   }
 
+  placeShipsRandomly(){
+    // Clear the current board and ships
+    this.board = [];
+    this.ships = [];
+    
+    // Reinitialize empty board
+    for(let i = 0; i < this.boardSize; i++){
+      this.board[i] = [];
+      for(let j = 0; j < this.boardSize; j++){
+        this.board[i][j] = null;
+      }
+    }
+
+    const shipLengths = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]; // All ships for game 
+
+    for(const length of shipLengths){
+        let placed = false;
+        let attempts = 0;
+        const maxAttempts = 100; // Prevent infinite loop
+        
+        while(!placed && attempts < maxAttempts){
+            try {
+                const direction = Math.random() > 0.5 ? 'horizontal' : 'vertical';
+                const x = Math.floor(Math.random() * 10);
+                const y = Math.floor(Math.random() * 10);
+
+                this.addShip(direction, {x, y}, length);
+                placed = true;
+            } catch (error) {
+                attempts++;
+            }
+        }
+    }
+  }
+
   receiveAttack(x,y){
     const target = this.board[x][y];
 

@@ -73,16 +73,18 @@ Dynamic game state tracking
 
 Jest unit tests for game logic
 
-[Planned] Basic UI for user interaction
+Basic UI for user interaction
 
-[Planned] Computer AI for automated moves
+Advanced computer AI for automated moves
 
 🧪 Testing
 Unit tests are written using Jest to ensure the core logic (e.g., ship placement, attack mechanics) works as expected. Test files are located in the __tests__/ folder.
 
 
 📌 In Progress
-Visual game interface
+Two Players gameplay interface
 
-Game loop and turn switching
+Placement ships by drag and drop
+
+Accurate AI ship placement
 
