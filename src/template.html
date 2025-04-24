@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>BATTLESHIP</title>
+    <title>BATTLESHIP_GAME</title>
 </head>
 <body>
-    <div class="block">BATTLESHIP</div>
+    <div class="container">
+        <h1>Battleship</h1>
+
+        <div class="game-area">
+            <div class="board-container">
+                <div class="board-title">Your Fleet</div>
+                <div id="player-board" class="board"></div>
+            </div>
+
+            <div class="board-container">
+                <div class="board-title">Your Fleet</div>
+                <div id="computer-board" class="board"></div>
+            </div>
+
+            <div class="message-area">
+                <p id="message">Welcome to Battleship! Click on the enemy board to start.</p>
+            </div>
+              
+            <div class="controls">
+                <button id="reset-game">New Game</button>
+            </div>
+        </div>
+
+        <div id="game-over" class="game-over hidden">
+            <div class="game-over-content">
+              <h2>Game Over</h2>
+              <p id="game-over-message"></p>
+              <button id="play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
