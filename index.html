@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battleship Game</title>
+<link rel="icon" href="favicon.png"><script defer src="main.js"></script></head>
+<body>
+  <div class="container">
+    <h1>Battleship Game</h1>
+    
+    <div class="game-area">
+      <div class="board-container">
+        <div class="board-title">Your Fleet</div>
+        <div id="player-board" class="board"></div>
+      </div>
+      
+      <div class="board-container">
+        <div class="board-title">Enemy Fleet</div>
+        <div id="computer-board" class="board"></div>
+      </div>
+    </div>
+    
+    <div class="message-area">
+      <p id="message">Welcome to Battleship! Click on the enemy board to start.</p>
+    </div>
+    
+    <div class="controls">
+      <button id="random-placement">Random your ships</button>
+      <button id="reset-game">New Game</button>
+    </div>
+  </div>
+  
+  <div id="game-over" class="game-over hidden">
+    <div class="game-over-content">
+      <h2>Game Over</h2>
+      <p id="game-over-message"></p>
+      <button id="play-again">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>
