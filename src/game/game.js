@@ -73,7 +73,11 @@ class Battleship{
                 return { gameOver: true, winner: 'player' }
             }
 
-            this.currentTurn = 'computer';
+            // Only switch turns if it's a miss
+            if(result.result === 'miss') {
+                this.currentTurn = 'computer';
+            }
+
             return { result: result.result };
         } catch (error) {
             console.log(`Error ${error.message}`);
@@ -95,7 +99,11 @@ class Battleship{
             return { gameOver: true, winner: 'computer' };
         }
     
-        this.currentTurn = 'player';
+        // Only switch turns if it's a miss
+        if(result.result === 'miss') {
+            this.currentTurn = 'player';
+        }
+
         return { result: result.result };
     }
 
@@ -116,22 +124,5 @@ class Battleship{
         return result;
     }
 }
-
-function demoGame() {
-    const game = new Battleship();
-    game.setup();
-    game.displayBoards();
-    
-    console.log('\nSimulation of couple moves');
-    
-    game.playTurn(5, 5);
-    game.playTurn(2, 2);
-    game.playTurn(9, 9);
-    
-    console.log('\nDemonstration is ended');
-}
-  
-  
-demoGame();
   
 module.exports = { Battleship };

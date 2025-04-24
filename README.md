@@ -31,7 +31,8 @@ battleship/
 │   │   ├── computerPlayer.spec.js 
 │   │   ├── player.spec.js 
 │   │   └── gameboard.spec.js 
-│   ├── style.css 
+│   ├── style.css
+│   ├── template.html 
 │   └── index.js # Entry point 
 │ 
 ├── .gitignore 
